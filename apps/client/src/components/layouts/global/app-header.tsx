@@ -1,6 +1,7 @@
 import { Badge, Group, Text, Tooltip } from "@mantine/core";
 import classes from "./app-header.module.css";
 import React from "react";
+import logo from '@/assets/favicon-32x32.png';
 import TopMenu from "@/components/layouts/global/top-menu.tsx";
 import { Link } from "react-router-dom";
 import APP_ROUTE from "@/lib/app-route.ts";
@@ -62,15 +63,16 @@ export function AppHeader() {
             </>
           )}
 
-          <Text
-            size="lg"
-            fw={600}
-            style={{ cursor: "pointer", userSelect: "none" }}
-            component={Link}
-            to="/home"
-          >
-            Docmost
-          </Text>
+          <Group align="center" gap="xs" component={Link} to="/home" style={{ textDecoration: 'none' }}>
+            <img src={logo} alt="Logo" width={24} height={24} />
+            <Text
+                size="lg"
+                fw={600}
+                style={{ cursor: "pointer", userSelect: "none", color: "inherit" }}
+            >
+              Cloud PeruClown
+            </Text>
+          </Group>
 
           <Group ml={50} gap={5} className={classes.links} visibleFrom="sm">
             {items}
