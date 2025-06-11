@@ -63,16 +63,16 @@ export function AppHeader() {
             </>
           )}
 
-          <Group align="center" gap="xs" component={Link} to="/home" style={{ textDecoration: 'none' }}>
-            <img src={logo} alt="Logo" width={24} height={24} />
+          <Link to="/home" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none', color: 'inherit' }}>
+            <img src={logo} alt="Logo" width={24} height={24} style={{ marginRight: 8 }} />
             <Text
                 size="lg"
                 fw={600}
-                style={{ cursor: "pointer", userSelect: "none", color: "inherit" }}
+                style={{ cursor: "pointer", userSelect: "none" }}
             >
               Cloud PeruClown
             </Text>
-          </Group>
+          </Link>
 
           <Group ml={50} gap={5} className={classes.links} visibleFrom="sm">
             {items}
