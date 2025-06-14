@@ -62,7 +62,7 @@ export default function LoginForm() {
               />
 
               <Group justify="center" mt="sm">
-                <Anchor align="center" component={Link} to={APP_ROUTE.AUTH.FORGOT_PASSWORD} size="sm">
+                <Anchor  component={Link} to={APP_ROUTE.AUTH.FORGOT_PASSWORD} size="sm">
                   ¿Olvidaste tu Contraseña?
                 </Anchor>
               </Group>
@@ -71,7 +71,7 @@ export default function LoginForm() {
                 Ingresar
               </Button>
 
-              <Text align="center" mt="md" size="xs">
+              <Text mt="md" size="xs">
                 <Anchor href="https://sales.peruclown.com/politicas/privacidad" target="_blank">
                   Mira nuestra política de privacidad
                 </Anchor>

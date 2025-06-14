@@ -70,7 +70,7 @@ export function AppHeader() {
                 fw={600}
                 style={{ cursor: "pointer", userSelect: "none" }}
             >
-              Cloud PeruClown
+              PeruClown
             </Text>
           </Link>
 
