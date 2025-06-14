@@ -35,7 +35,7 @@ export default function useAuth() {
   const navigate = useNavigate();
   const [, setCurrentUser] = useAtom(currentUserAtom);
 
-  const handleSignIn = async (data: ILogin) => {
+  const handleSignIn = async (data: ReturnType<(values: {}) => {}>) => {
     setIsLoading(true);
 
     try {
