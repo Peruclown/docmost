@@ -18,7 +18,8 @@ import useAuth from "@/features/auth/hooks/use-auth";
 import APP_ROUTE from "@/lib/app-route";
 import logo from "@/assets/lg.png";
 import * as z from "zod";
-import classes from "./login-peruclown.module.css"; // ← Nuevo archivo de estilos
+import classes from "./login-peruclown.module.css";
+import {ILogin} from "@/features/auth/types/auth.types.ts"; // ← Nuevo archivo de estilos
 
 const formSchema = z.object({
   email: z.string().min(1, { message: "email is required" }).email({ message: "Invalid email" }),
@@ -30,13 +31,14 @@ export default function LoginForm() {
   const { signIn, isLoading } = useAuth();
   useRedirectIfAuthenticated();
 
-  const form = useForm({
+  const form = useForm<z.infer<typeof formSchema>>({
     validate: zodResolver(formSchema),
     initialValues: {
       email: "",
       password: "",
     },
   });
+
 
   return (
       <div className={classes.pageWrapper}>
@@ -47,7 +49,7 @@ export default function LoginForm() {
             <Title order={2} className={classes.title} style={{padding: "20px 0px"}}>¡Bienvenido! 👋</Title>
             <Text size="sm" c="dimmed" mb="md">Por favor ingrese sus credenciales para ingresar al sistema</Text>
 
-            <form onSubmit={form.onSubmit((values) => signIn(values))}>
+            <form onSubmit={form.onSubmit((values) => signIn(values as ILogin))}>
               <TextInput
                   label="Email"
                   placeholder="Ingrese su correo electrónico"
